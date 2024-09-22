@@ -20,3 +20,12 @@ include_directories(${SDL2_INCLUDE_DIRS})
 
 # Link SDL2 libraries
 target_link_libraries(Artisan2D PRIVATE SDL2::SDL2 SDL2::SDL2main)
+
+# Copy the correct SDL2.dll to the output directory
+if (WIN32)
+    add_custom_command(
+        TARGET Artisan2D POST_BUILD
+        COMMAND "${CMAKE_COMMAND}" -E copy_if_different "$<TARGET_FILE:SDL2::SDL2>" "$<TARGET_FILE_DIR:Artisan2D>"
+        VERBATIM
+    )
+endif()
