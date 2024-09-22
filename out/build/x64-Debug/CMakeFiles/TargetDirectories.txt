@@ -1,0 +1,3 @@
+C:/Users/osteh/Documents/GitHub/Artisan2D/out/build/x64-Debug/CMakeFiles/Artisan2D.dir
+C:/Users/osteh/Documents/GitHub/Artisan2D/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/osteh/Documents/GitHub/Artisan2D/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
