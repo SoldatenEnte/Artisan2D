@@ -1,4 +1,14 @@
-# Artisan2D
+<table style="border-collapse: collapse; border: none;">
+  <tr>
+    <td style="border: none; vertical-align: middle;">
+      <img src="./assets/artisan2d_logo_1024x.png" alt="Artisan2D Logo" width="50" />
+    </td>
+    <td style="border: none; vertical-align: middle;">
+      <h1 style="margin: 0;">Artisan2D</h1>
+    </td>
+  </tr>
+</table>
+
 
 Artisan2D is a game engine designed to empower your creativity in crafting captivating 2D experiences. Built exclusively for 2D game development, Artisan2D combines simplicity with power, offering a modern modular UI that streamlines your workflow.
 
@@ -35,7 +45,7 @@ Before you begin, ensure you have the following installed on your system:
 To install SDL2 and its dependencies, use the following commands:
 
 ```bash
-vcpkg install sdl2 sdl2-image
+vcpkg install sdl2 sdl2-image sdl2-ttf sdl-gfx
 vcpkg integrate install
 ```
 

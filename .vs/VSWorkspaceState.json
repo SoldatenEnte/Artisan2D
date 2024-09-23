@@ -7,8 +7,15 @@
   },
   "ExpandedNodes": [
     "",
-    "\\src"
+    "\\include",
+    "\\include\\Core",
+    "\\include\\Graphics",
+    "\\include\\UI",
+    "\\src",
+    "\\src\\Core",
+    "\\src\\Graphics",
+    "\\src\\UI"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
+  "SelectedNode": "\\include\\Graphics\\Renderer.h",
   "PreviewInSolutionExplorer": false
 }
