@@ -1,9 +1,9 @@
-<table style="border-collapse: collapse; border: none;">
+<table style="border-collapse: collapse; width: auto;">
   <tr>
     <td style="border: none; vertical-align: middle;">
-      <img src="./assets/artisan2d_logo_1024x.png" alt="Artisan2D Logo" width="50" />
+      <img src="/assets/artisan2d_logo_1024x.png" alt="Artisan2D Logo" width="50" />
     </td>
-    <td style="border: none; vertical-align: middle;">
+    <td style="border: none;">
       <h1 style="margin: 0;">Artisan2D</h1>
     </td>
   </tr>
