@@ -10,6 +10,12 @@ public:
 
 private:
     bool running;       // Flag to keep the engine running
+    const int FPS = 60;
+    const int FRAME_DELAY = 1000 / FPS;
+
+    void ProcessInput();
+    void Update(float deltaTime);
+    void Render();
 };
 
 #endif // ENGINE_H

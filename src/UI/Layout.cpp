@@ -50,3 +50,21 @@ void Layout::Draw() {
     // Present the renderer
     SDL_RenderPresent(renderer);
 }
+
+
+// In Layout.cpp
+void Layout::HandleResize(int width, int height) {
+    // Recalculate layout dimensions based on new window size
+    int offset = 15; // Define a smaller offset
+
+    // Calculate sizes and positions relative to the new window size
+    int leftWidth = (width - 3 * offset) * 0.4;  // Adjusted width for left window
+    int rightWidth = (width - 3 * offset) * 0.6; // Adjusted width for right window
+    int sectionHeight = height - 2 * offset;     // Height of the inner windows
+
+    int upperHeight = (height - 3 * offset) * 0.65;
+    int lowerHeight = (height - 3 * offset) * 0.35;
+
+    // You might want to store these new dimensions in static variables
+    // or update any objects that represent your layout
+}

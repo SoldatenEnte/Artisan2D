@@ -44,3 +44,10 @@ void Renderer::Shutdown() {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
 }
+
+void Renderer::HandleResize(int width, int height) {
+    SDL_SetWindowSize(window, width, height);
+    SDL_RenderSetLogicalSize(renderer, width, height);
+    // Might want to add additional logic here, such as updating any
+    // cached window dimensions or adjusting rendering parameters
+}

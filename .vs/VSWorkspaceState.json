@@ -7,15 +7,16 @@
   },
   "ExpandedNodes": [
     "",
-    "\\include",
-    "\\include\\Core",
-    "\\include\\Graphics",
-    "\\include\\UI",
     "\\src",
-    "\\src\\Core",
+    "\\src\\Audio",
+    "\\src\\Components",
     "\\src\\Graphics",
+    "\\src\\Input",
+    "\\src\\Physics",
+    "\\src\\Scene",
+    "\\src\\Scripting",
     "\\src\\UI"
   ],
-  "SelectedNode": "\\include\\Graphics\\Renderer.h",
+  "SelectedNode": "\\include\\UI\\Layout.h",
   "PreviewInSolutionExplorer": false
 }

@@ -10,8 +10,9 @@ public:
     static void Clear();
     static void Present();
     static void Shutdown();
+    static void HandleResize(int width, int height);
     static SDL_Renderer* GetRenderer() { return renderer; }
-    static SDL_Window* GetWindow();  // Add this line
+    static SDL_Window* GetWindow();
 
 private:
     static SDL_Window* window;
