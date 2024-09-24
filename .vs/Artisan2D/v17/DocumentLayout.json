@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\osteh\\Documents\\GitHub\\Artisan2D\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\osteh\\Documents\\GitHub\\Artisan2D\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\osteh\\Documents\\GitHub\\Artisan2D\\src\\Core\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Core\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\osteh\\Documents\\GitHub\\Artisan2D\\src\\UI\\Layout.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\UI\\Layout.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\osteh\\Documents\\GitHub\\Artisan2D\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\osteh\\Documents\\GitHub\\Artisan2D\\src\\Graphics\\Renderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -58,17 +58,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "README.md",
               "DocumentMoniker": "C:\\Users\\osteh\\Documents\\GitHub\\Artisan2D\\README.md",
               "RelativeDocumentMoniker": "README.md",
               "ToolTip": "C:\\Users\\osteh\\Documents\\GitHub\\Artisan2D\\README.md",
               "RelativeToolTip": "README.md",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAUwF0AAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAAAEgAAACIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2024-09-22T18:24:21.032Z",
               "IsPinned": true,
@@ -85,8 +85,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2024-09-22T15:34:34.148Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -98,8 +97,7 @@
               "RelativeToolTip": "src\\main.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-22T15:38:01.639Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T15:38:01.639Z"
             },
             {
               "$type": "Document",
@@ -111,12 +109,11 @@
               "RelativeToolTip": "include\\Colors.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-23T18:29:44.365Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-23T18:29:44.365Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Logger.h",
               "DocumentMoniker": "C:\\Users\\osteh\\Documents\\GitHub\\Artisan2D\\include\\Core\\Logger.h",
               "RelativeDocumentMoniker": "include\\Core\\Logger.h",
@@ -124,12 +121,11 @@
               "RelativeToolTip": "include\\Core\\Logger.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-24T12:24:20.848Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T12:24:20.848Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Logger.cpp",
               "DocumentMoniker": "C:\\Users\\osteh\\Documents\\GitHub\\Artisan2D\\src\\Core\\Logger.cpp",
               "RelativeDocumentMoniker": "src\\Core\\Logger.cpp",
@@ -137,8 +133,7 @@
               "RelativeToolTip": "src\\Core\\Logger.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-24T12:24:30.351Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T12:24:30.351Z"
             },
             {
               "$type": "Document",
@@ -150,12 +145,11 @@
               "RelativeToolTip": "include\\UI\\Layout.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-24T12:42:37.909Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T12:42:37.909Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Layout.cpp",
               "DocumentMoniker": "C:\\Users\\osteh\\Documents\\GitHub\\Artisan2D\\src\\UI\\Layout.cpp",
               "RelativeDocumentMoniker": "src\\UI\\Layout.cpp",
@@ -163,8 +157,7 @@
               "RelativeToolTip": "src\\UI\\Layout.cpp",
               "ViewState": "AgIAACAAAAAAAAAAAAAswDUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-23T18:21:23.33Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-23T18:21:23.33Z"
             },
             {
               "$type": "Document",
@@ -176,8 +169,7 @@
               "RelativeToolTip": "include\\Graphics\\Renderer.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-24T12:20:51.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T12:20:51.162Z"
             },
             {
               "$type": "Document",
@@ -189,8 +181,7 @@
               "RelativeToolTip": "src\\Graphics\\Renderer.cpp",
               "ViewState": "AgIAABsAAAAAAAAAAAAAADMAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-23T18:21:15.019Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-23T18:21:15.019Z"
             },
             {
               "$type": "Document",
@@ -202,12 +193,11 @@
               "RelativeToolTip": "include\\Core\\Engine.h",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-24T12:21:06.245Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T12:21:06.245Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Engine.cpp",
               "DocumentMoniker": "C:\\Users\\osteh\\Documents\\GitHub\\Artisan2D\\src\\Core\\Engine.cpp",
               "RelativeDocumentMoniker": "src\\Core\\Engine.cpp",
