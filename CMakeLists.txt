@@ -5,7 +5,7 @@ project(Artisan2D)
 set(CMAKE_CXX_STANDARD 17)
 
 # Set the vcpkg toolchain file path
-set(CMAKE_TOOLCHAIN_FILE "C:/Users/osteh/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
+set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/../vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
 
 # Find SDL2 packages
 find_package(SDL2 CONFIG REQUIRED)
@@ -26,7 +26,7 @@ add_executable(Artisan2D
     "include/UI/Layout.h"
     "include/Core/Application.h"
     "include/Colors.h"
- "include/Core/Logger.h" "src/Core/Logger.cpp")
+    "include/Core/Logger.h" "src/Core/Logger.cpp")
 
 set_target_properties(Artisan2D PROPERTIES WIN32_EXECUTABLE TRUE)
 

@@ -60,17 +60,9 @@ cd Artisan2D
 
 ### Configuring the Project
 
-1. **Modify CMakeLists.txt**: Open the `CMakeLists.txt` file in the Artisan2D directory. Update the SDL2 directory path to match your vcpkg installation:
+1. **Build the Project**: Open the solution in Visual Studio and build it directly. The build process will configure the project automatically.
 
-   ```cmake
-   set(SDL2_DIR "C:/path/to/vcpkg/installed/x64-windows/share/sdl2")
-   ```
-
-   Replace `C:/path/to/vcpkg` with the actual path to your vcpkg installation.
-
-2. **Build the Project**: Open the solution in Visual Studio and build it directly. The build process will configure the project automatically.
-
-3. **Run the Engine**: After building, the executable will be located in `out/build/x64-debug/Artisan2D.exe`. You can run it from there.
+2. **Run the Engine**: After building, the executable will be located in `out/build/x64-debug/Artisan2D.exe`. You can run it from there.
 
 ## License
 
