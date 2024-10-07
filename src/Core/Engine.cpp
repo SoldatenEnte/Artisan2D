@@ -101,7 +101,9 @@ void Engine::ProcessInput() {
 
 void Engine::Update(float deltaTime) {
     // Update game logic here
-    // You can pass deltaTime to other update functions
+    for (auto& block : m_blocks) {
+        block->Update();
+    }
 }
 
 void Engine::Render() {
@@ -111,4 +113,8 @@ void Engine::Render() {
     Layout::Draw();
 
     Renderer::Present();
+}
+
+void Engine::AddBlock(std::unique_ptr<Block> block) {
+    m_blocks.push_back(std::move(block));
 }

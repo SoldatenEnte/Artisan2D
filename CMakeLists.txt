@@ -26,7 +26,7 @@ add_executable(Artisan2D
     "include/UI/Layout.h"
     "include/Core/Application.h"
     "include/Colors.h"
-    "include/Core/Logger.h" "src/Core/Logger.cpp")
+    "include/Core/Logger.h" "src/Core/Logger.cpp" "include/Blocks/Block.h" "src/Blocks/KeyInputBlock.cpp" "include/Blocks/KeyInputBlock.h")
 
 set_target_properties(Artisan2D PROPERTIES WIN32_EXECUTABLE TRUE)
 
