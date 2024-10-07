@@ -1,3 +1,6 @@
+# Ignore the output directory (build artifacts)
+out/
+
 # Prerequisites
 *.d
 
@@ -30,3 +33,34 @@
 *.exe
 *.out
 *.app
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+
+# Visual Studio files (if applicable)
+*.sln
+*.user
+*.suo
+*.vcxproj
+*.vcxproj.filters
+.vs/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Miscellaneous
+*.tmp
+*.orig
+*.bak
+*.swp
