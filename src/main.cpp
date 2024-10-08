@@ -2,12 +2,11 @@
 #include "../include/core/Logger.h"
 #include "../include/Core/Engine.h"
 #include "../include/Blocks/KeyInputBlock.h"
+#include "../include/Blocks/ShapeBlock.h"
 
 int main(int argc, char* argv[]) {
-    // Create an instance of the engine
     Engine engine;
 
-    // Initialize the engine
     if (!engine.Init()) {
         return 1;
     }
@@ -18,13 +17,22 @@ int main(int argc, char* argv[]) {
         []() { Logger::Log("Space key pressed!"); }
     );
 
-    // Add the block to the engine
+
+    auto centerShape = std::make_unique<ShapeBlock>(
+        ShapeType::RECTANGLE, 0, 0, 1000, 10, SDL_Color{ 0, 255, 0, 255 }
+    );
+    engine.AddBlock(std::move(centerShape));
+
+    auto centerShapeB = std::make_unique<ShapeBlock>(
+        ShapeType::RECTANGLE, 0, 0, 10, 1000, SDL_Color{ 0, 255, 0, 255 }
+    );
+    engine.AddBlock(std::move(centerShapeB));
+
+
+    // Add the blocks to the engine
     engine.AddBlock(std::move(keyBlock));
 
-    // Run the main loop
     engine.Run();
-
-    // Shutdown the engine
     engine.Shutdown();
 
     return 0;

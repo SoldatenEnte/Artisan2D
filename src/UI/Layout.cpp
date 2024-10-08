@@ -4,11 +4,11 @@
 #include <SDL2_gfxPrimitives.h>
 
 // Implement the DrawSection function
-void Layout::DrawSection(int x, int y, int w, int h, const char* text) {
+void Layout::DrawSection(int x, int y, int w, int h, float r, const char* text) {
     SDL_Renderer* renderer = Renderer::GetRenderer();
 
     // Draw rounded rectangle using SDL2_gfx
-    roundedBoxRGBA(renderer, x, y, x + w, y + h, 15,
+    roundedBoxRGBA(renderer, x, y, x + w, y + h, r,
         Colors::WINDOW_COLOR.r, Colors::WINDOW_COLOR.g,
         Colors::WINDOW_COLOR.b, Colors::WINDOW_COLOR.a);
 
@@ -28,43 +28,26 @@ void Layout::Draw() {
         Colors::BACKGROUND.b, Colors::BACKGROUND.a);
     SDL_RenderClear(renderer);
 
-    int offset = 15; // Define a smaller offset
+    int offset = windowWidth * 0.01;
 
     // Calculate sizes and positions relative to the window size
-    int leftWidth = (windowWidth - 3 * offset) * 0.4;  // Adjusted width for left window
-    int rightWidth = (windowWidth - 3 * offset) * 0.6; // Adjusted width for right window
-    int sectionHeight = windowHeight - 2 * offset;     // Height of the inner windows
+    int builderWidth = (windowWidth - 3 * offset) * 0.4;  // Width for the Builder
+    int previewWidth = (windowWidth - 3 * offset) * 0.6;  // Width for the Game Preview Area
+    int sectionHeight = windowHeight - 2 * offset;        // Height of the inner windows
 
-    int upperHeight = (windowHeight - 3 * offset) * 0.65;
-    int lowerHeight = (windowHeight - 3 * offset) * 0.35;
+    int previewHeight = previewWidth * 9 / 16;            // Height for the Game Preview Area
+    int blockSelectionHeight = windowHeight - previewHeight - 3 * offset; // Height for the Block Selection Area
 
-    // Left window
-    DrawSection(offset, offset, leftWidth, sectionHeight, "Left Window");
+    // Builder (Left Window)
+    DrawSection(offset, offset, builderWidth, sectionHeight, offset, "Builder");
 
-    // Right Upper window
-    DrawSection(leftWidth + offset + offset, offset, rightWidth, upperHeight, "Right Upper Window");
+    // Game Preview Area (Right Upper Window)
+    DrawSection(builderWidth + offset + offset, offset, previewWidth, previewHeight, offset, "Game Preview");
 
-    // Right Lower window
-    DrawSection(leftWidth + offset + offset, upperHeight + offset + offset, rightWidth, lowerHeight, "Right Lower Window");
+    // Block Selection Area (Right Lower Window)
+    DrawSection(builderWidth + offset + offset, previewHeight + offset + offset, previewWidth, blockSelectionHeight, offset, "Block Selection");
 
     // Present the renderer
     SDL_RenderPresent(renderer);
 }
 
-
-// In Layout.cpp
-void Layout::HandleResize(int width, int height) {
-    // Recalculate layout dimensions based on new window size
-    int offset = 15; // Define a smaller offset
-
-    // Calculate sizes and positions relative to the new window size
-    int leftWidth = (width - 3 * offset) * 0.4;  // Adjusted width for left window
-    int rightWidth = (width - 3 * offset) * 0.6; // Adjusted width for right window
-    int sectionHeight = height - 2 * offset;     // Height of the inner windows
-
-    int upperHeight = (height - 3 * offset) * 0.65;
-    int lowerHeight = (height - 3 * offset) * 0.35;
-
-    // You might want to store these new dimensions in static variables
-    // or update any objects that represent your layout
-}
