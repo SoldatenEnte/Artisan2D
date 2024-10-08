@@ -18,15 +18,20 @@ int main(int argc, char* argv[]) {
     );
 
 
-    auto centerShape = std::make_unique<ShapeBlock>(
-        ShapeType::RECTANGLE, 0, 0, 1000, 10, SDL_Color{ 0, 255, 0, 255 }
+    auto centerShapeX = std::make_unique<ShapeBlock>(
+        ShapeType::RECTANGLE, 0, 0, 1000, 10, SDL_Color{ 255, 0, 0, 255 }
     );
-    engine.AddBlock(std::move(centerShape));
+    engine.AddBlock(std::move(centerShapeX));
 
-    auto centerShapeB = std::make_unique<ShapeBlock>(
+    auto centerShapeY = std::make_unique<ShapeBlock>(
         ShapeType::RECTANGLE, 0, 0, 10, 1000, SDL_Color{ 0, 255, 0, 255 }
     );
-    engine.AddBlock(std::move(centerShapeB));
+    engine.AddBlock(std::move(centerShapeY));
+
+    auto centerShapeZ = std::make_unique<ShapeBlock>(
+        ShapeType::CIRCLE, 0, 0, 100, 100, SDL_Color{ 0, 0, 255, 127 }
+    );
+    engine.AddBlock(std::move(centerShapeZ));
 
 
     // Add the blocks to the engine

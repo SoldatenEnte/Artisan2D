@@ -12,33 +12,19 @@ void ShapeBlock::Update() {
 }
 
 void ShapeBlock::Render(SDL_Renderer* renderer, const SDL_Rect& viewportRect, const SDL_FPoint& scale) {
-    int windowWidth, windowHeight;
-    SDL_GetWindowSize(Renderer::GetWindow(), &windowWidth, &windowHeight);
-
-    int offset = windowWidth * 0.01;
-    int builderWidth = (windowWidth - 3 * offset) * 0.4;
-
     // Convert game coordinates to viewport coordinates
-    float viewportCenterX = viewportRect.x + viewportRect.w / 2.0f;
-    float viewportCenterY = viewportRect.y + viewportRect.h / 2.0f;
-
-
     float scaledWidth = m_width * scale.x;
     float scaledHeight = m_height * scale.y;
 
-    //OFFSET BUG FIX (NOT CLEAN)
-    float adjustedX = viewportCenterX + m_x * scale.x - scaledWidth / 2 - (builderWidth + offset + offset);
-    float adjustedY = viewportCenterY - m_y * scale.y - scaledHeight / 2 - offset; // Invert Y-axis
+    // Calculate the position within the viewport
+    float adjustedX = (m_x * scale.x) + (viewportRect.w / 2.0f) - (scaledWidth / 2.0f);
+    float adjustedY = (viewportRect.h / 2.0f) - (m_y * scale.y) - (scaledHeight / 2.0f); // Invert Y-axis
 
-
-    //STILL BUGGY ---------------------------------------------------------
-    // 
-    //// Ensure the shape is within the viewport
-    //if (adjustedX + scaledWidth < viewportRect.x || adjustedY + scaledHeight < viewportRect.y ||
-    //    adjustedX > viewportRect.x + viewportRect.w || adjustedY > viewportRect.y + viewportRect.h) {
-    //    return; // Shape is outside the viewport, don't render
-    //}
-    //---------------------------------------------------------------------
+    // Ensure the shape is within the viewport
+    if (adjustedX + scaledWidth < 0 || adjustedY + scaledHeight < 0 ||
+        adjustedX > viewportRect.w || adjustedY > viewportRect.h) {
+        return; // Shape is outside the viewport, don't render
+    }
 
     switch (m_type) {
     case ShapeType::RECTANGLE:
