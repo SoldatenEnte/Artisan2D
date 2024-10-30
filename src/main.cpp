@@ -1,5 +1,5 @@
 #include <SDL.h>
-#include "../include/core/Logger.h"
+#include "../include/Core/Logger.h"
 #include "../include/Core/Engine.h"
 #include "../include/Blocks/KeyInputBlock.h"
 #include "../include/Blocks/ShapeBlock.h"
