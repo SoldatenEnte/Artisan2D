@@ -9,7 +9,6 @@
   </tr>
 </table>
 
-
 Artisan2D is a game engine designed to empower your creativity in crafting captivating 2D experiences. Built exclusively for 2D game development, Artisan2D combines simplicity with power, offering a modern modular UI that streamlines your workflow.
 
 ## Features
@@ -40,14 +39,16 @@ Before you begin, ensure you have the following installed on your system:
     .\bootstrap-vcpkg.bat
     ```
 
-### Installing SDL2
+### Installing SDL2 and ImGui
 
-To install SDL2 and its dependencies, use the following commands:
+To install SDL2, ImGui, and other dependencies, use the following commands:
 
 ```bash
-vcpkg install sdl2 sdl2-image sdl2-ttf sdl-gfx
+vcpkg install sdl2 sdl2-image sdl2-ttf sdl2-gfx imgui[sdl2-binding,sdl2-renderer-binding]
 vcpkg integrate install
 ```
+
+> **Note:** `vcpkg integrate install` will configure Visual Studio to automatically detect and link dependencies installed with vcpkg.
 
 ### Cloning the Repository
 
@@ -60,9 +61,18 @@ cd Artisan2D
 
 ### Configuring the Project
 
-1. **Build the Project**: Open the solution in Visual Studio and build it directly. The build process will configure the project automatically.
+1. **Configure with CMake**:
+   - Open a terminal in the project directory.
+   - Run the following commands to set up the project using `vcpkg`:
 
-2. **Run the Engine**: After building, the executable will be located in `out/build/x64-debug/Artisan2D.exe`. You can run it from there.
+     ```bash
+     cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=[path-to-vcpkg]/scripts/buildsystems/vcpkg.cmake
+     ```
+
+2. **Build the Project**:
+   - Open the solution in Visual Studio or run `cmake --build build` from the terminal.
+
+3. **Run the Engine**: After building, the executable will be located in the `build` directory. You can run it from there.
 
 ## License
 
