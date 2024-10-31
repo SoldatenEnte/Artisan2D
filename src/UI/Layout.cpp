@@ -1,53 +1,45 @@
+// Layout.cpp
 #include "../../include/UI/Layout.h"
 #include "../../include/Graphics/Renderer.h"
 #include "../../include/Colors.h"
-#include <SDL2_gfxPrimitives.h>
+#include <imgui.h>
+#include <imgui_impl_sdl2.h>
+#include <imgui_impl_sdlrenderer2.h>
+#include <SDL2/SDL.h>
 
-// Implement the DrawSection function
-void Layout::DrawSection(int x, int y, int w, int h, float r, const char* text) {
-    SDL_Renderer* renderer = Renderer::GetRenderer();
-
-    // Draw rounded rectangle using SDL2_gfx
-    roundedBoxRGBA(renderer, x, y, x + w, y + h, r,
-        Colors::WINDOW_COLOR.r, Colors::WINDOW_COLOR.g,
-        Colors::WINDOW_COLOR.b, Colors::WINDOW_COLOR.a);
-
-    // Placeholder for text rendering (future feature)
+namespace {
+    float testValue = 0.0f;
 }
 
-// Implement the Draw function
 void Layout::Draw() {
-    SDL_Renderer* renderer = Renderer::GetRenderer();
-    int windowWidth, windowHeight;
+    // Start new ImGui frame
+    ImGui_ImplSDLRenderer2_NewFrame();
+    ImGui_ImplSDL2_NewFrame();
+    ImGui::NewFrame();
 
-    // Get the current window size
-    SDL_GetWindowSize(Renderer::GetWindow(), &windowWidth, &windowHeight);
+    // Create a simple window with explicit size and position
+    ImGui::SetNextWindowSize(ImVec2(300, 200), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowPos(ImVec2(50, 50), ImGuiCond_FirstUseEver);
 
-    // Set the background color to BACKGROUND and clear the renderer
-    SDL_SetRenderDrawColor(renderer, Colors::BACKGROUND.r, Colors::BACKGROUND.g,
-        Colors::BACKGROUND.b, Colors::BACKGROUND.a);
-    SDL_RenderClear(renderer);
+    ImGui::Begin("Hello ImGui!");
 
-    int offset = windowWidth * 0.01;
+    ImGui::Text("Welcome to Artisan2D!");
+    ImGui::Text("This window should now be interactive!");
+    ImGui::Spacing();
 
-    // Calculate sizes and positions relative to the window size
-    int builderWidth = (windowWidth - 3 * offset) * 0.4;  // Width for the Builder
-    int previewWidth = (windowWidth - 3 * offset) * 0.6;  // Width for the Game Preview Area
-    int sectionHeight = windowHeight - 2 * offset;        // Height of the inner windows
+    ImGui::SliderFloat("Test Slider", &testValue, 0.0f, 100.0f);
 
-    int previewHeight = previewWidth * 9 / 16;            // Height for the Game Preview Area
-    int blockSelectionHeight = windowHeight - previewHeight - 3 * offset; // Height for the Block Selection Area
+    if (ImGui::Button("Click Me!")) {
+        testValue = 50.0f;
+    }
 
-    // Builder (Left Window)
-    DrawSection(offset, offset, builderWidth, sectionHeight, offset, "Builder");
+    ImGui::End();
 
-    // Game Preview Area (Right Upper Window)
-    DrawSection(builderWidth + offset + offset, offset, previewWidth, previewHeight, offset, "Game Preview");
-
-    // Block Selection Area (Right Lower Window)
-    DrawSection(builderWidth + offset + offset, previewHeight + offset + offset, previewWidth, blockSelectionHeight, offset, "Block Selection");
-
-    // Present the renderer
-    SDL_RenderPresent(renderer);
+    // Render
+    ImGui::Render();
+    ImGui_ImplSDLRenderer2_RenderDrawData(ImGui::GetDrawData(), Renderer::GetRenderer());
 }
 
+void Layout::HandleResize(int width, int height) {
+    // ImGui handles resizing automatically
+}

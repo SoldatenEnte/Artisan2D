@@ -7,10 +7,11 @@ set(CMAKE_CXX_STANDARD 17)
 # Vcpkg toolchain file
 set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/../vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
 
-# Find SDL2 packages
+# Find SDL2 and ImGui packages
 find_package(SDL2 CONFIG REQUIRED)
 find_package(SDL2_ttf CONFIG REQUIRED)
 find_package(sdl2-gfx CONFIG REQUIRED)
+find_package(imgui CONFIG REQUIRED)
 
 # Source and header files
 set(SOURCE_FILES
@@ -43,5 +44,12 @@ set_target_properties(Artisan2D PROPERTIES WIN32_EXECUTABLE TRUE)
 # Include directories
 target_include_directories(Artisan2D PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-# Link libraries
-target_link_libraries(Artisan2D PRIVATE SDL2::SDL2 SDL2::SDL2main SDL2_ttf::SDL2_ttf SDL2::SDL2_gfx)
+# Link libraries (SDL2, SDL2_ttf, SDL2_gfx, ImGui)
+target_link_libraries(Artisan2D
+    PRIVATE
+    SDL2::SDL2
+    SDL2::SDL2main
+    SDL2_ttf::SDL2_ttf
+    SDL2::SDL2_gfx
+    imgui::imgui
+)

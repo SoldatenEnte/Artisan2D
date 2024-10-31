@@ -2,6 +2,10 @@
 #include "../../include/Core/Logger.h"
 #include "../../include/Graphics/Renderer.h"
 #include "../../include/UI/Layout.h"
+#include "../../include/Colors.h"
+#include <imgui.h>
+#include <imgui_impl_sdl2.h>
+#include <imgui_impl_sdlrenderer2.h>
 #include <iostream>
 
 Engine::Engine() : running(false) {}
@@ -18,6 +22,26 @@ bool Engine::Init() {
         return false;
     }
 
+    // Initialize ImGui
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO();
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable keyboard controls
+
+    // Set up ImGui style
+    ImGui::StyleColorsDark();
+
+    // Initialize ImGui backends
+    if (!ImGui_ImplSDL2_InitForSDLRenderer(Renderer::GetWindow(), Renderer::GetRenderer())) {
+        std::cerr << "Failed to initialize ImGui SDL2 backend" << std::endl;
+        return false;
+    }
+
+    if (!ImGui_ImplSDLRenderer2_Init(Renderer::GetRenderer())) {
+        std::cerr << "Failed to initialize ImGui SDL2 Renderer backend" << std::endl;
+        return false;
+    }
+
     UpdateGameViewport();
 
     // Initialize Logger with an explicit path
@@ -29,7 +53,6 @@ bool Engine::Init() {
 
     running = true;
     return true;
-
 }
 
 void Engine::Run() {
@@ -77,6 +100,11 @@ void Engine::Run() {
 }
 
 void Engine::Shutdown() {
+    // Cleanup ImGui
+    ImGui_ImplSDLRenderer2_Shutdown();
+    ImGui_ImplSDL2_Shutdown();
+    ImGui::DestroyContext();
+
     Renderer::Shutdown();
     SDL_Quit();
 }
@@ -84,23 +112,41 @@ void Engine::Shutdown() {
 void Engine::ProcessInput() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
-        if (event.type == SDL_QUIT) {
-            running = false;
+        // Let ImGui handle events first
+        ImGui_ImplSDL2_ProcessEvent(&event);
+
+        // Get ImGui IO
+        ImGuiIO& io = ImGui::GetIO();
+
+        // Only process game events if ImGui isn't capturing the mouse/keyboard
+        if (!io.WantCaptureMouse && !io.WantCaptureKeyboard) {
+            if (event.type == SDL_QUIT) {
+                running = false;
+            }
+            else if (event.type == SDL_WINDOWEVENT) {
+                if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
+                    int newWidth = event.window.data1;
+                    int newHeight = event.window.data2;
+                    UpdateGameViewport();
+                    Renderer::HandleResize(newWidth, newHeight);
+                }
+            }
+            // Add any other game input handling here
         }
-        // Handle window resizing
-        else if (event.type == SDL_WINDOWEVENT) {
-            if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
-                int newWidth = event.window.data1;
-                int newHeight = event.window.data2;
-
-                UpdateGameViewport();
-
-                // Handle resizing logic here
-                // For example, you might want to update your renderer or UI layout
-                Renderer::HandleResize(newWidth, newHeight);
+        else {
+            // ImGui wants to capture input, so still handle window events
+            if (event.type == SDL_QUIT) {
+                running = false;
+            }
+            else if (event.type == SDL_WINDOWEVENT) {
+                if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
+                    int newWidth = event.window.data1;
+                    int newHeight = event.window.data2;
+                    UpdateGameViewport();
+                    Renderer::HandleResize(newWidth, newHeight);
+                }
             }
         }
-        // Add any other input handling here
     }
 }
 
@@ -114,10 +160,15 @@ void Engine::Update(float deltaTime) {
 void Engine::Render() {
     Renderer::Clear();
 
-    // Render UI layout
-    Layout::Draw();
+    // Set background color
+    SDL_SetRenderDrawColor(Renderer::GetRenderer(),
+        Colors::BACKGROUND.r,
+        Colors::BACKGROUND.g,
+        Colors::BACKGROUND.b,
+        Colors::BACKGROUND.a);
+    SDL_RenderClear(Renderer::GetRenderer());
 
-    // Render game objects (ShapeBlocks)
+    // Render game objects
     SDL_Renderer* renderer = Renderer::GetRenderer();
     SDL_RenderSetViewport(renderer, &m_gameViewport);
 
@@ -127,11 +178,13 @@ void Engine::Render() {
         }
     }
 
-    SDL_RenderSetViewport(renderer, nullptr); // Reset viewport
+    SDL_RenderSetViewport(renderer, nullptr);
+
+    // Draw ImGui UI
+    Layout::Draw();
 
     Renderer::Present();
 }
-
 
 void Engine::AddBlock(std::unique_ptr<Block> block) {
     m_blocks.push_back(std::move(block));
